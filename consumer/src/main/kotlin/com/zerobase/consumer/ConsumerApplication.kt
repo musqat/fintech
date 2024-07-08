@@ -8,6 +8,6 @@ import org.springframework.boot.runApplication
 @EntityScan(basePackages = ["com.zerobase.domain"])
 class ConsumerApplication
 
-    fun main(args: Array<String>) {
-        runApplication<ConsumerApplication>()
-    }
+fun main(args: Array<String>) {
+    runApplication<ConsumerApplication>(*args)
+}
