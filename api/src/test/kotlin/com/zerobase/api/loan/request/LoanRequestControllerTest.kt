@@ -2,8 +2,11 @@ package com.zerobase.api.loan.request
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.zerobase.api.loan.GenerateKey
-import com.zerobase.api.loan.encrypt.EncryptComponent
+import com.zerobase.com.zerobase.api.loan.GenerateKey
+import com.zerobase.com.zerobase.api.loan.encrypt.EncryptComponent
+import com.zerobase.com.zerobase.api.loan.request.LoanRequestController
+import com.zerobase.com.zerobase.api.loan.request.LoanRequestDto
+import com.zerobase.com.zerobase.api.loan.request.LoanRequestServiceImpl
 import com.zerobase.domain.domain.UserInfo
 import com.zerobase.domain.repository.UserInfoRepository
 import io.mockk.every
@@ -12,8 +15,10 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
+import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.post
 import org.springframework.test.web.servlet.setup.MockMvcBuilders
@@ -68,7 +73,7 @@ internal class LoanRequestControllerTest {
                 userRegistrationNumber = "000101-1234567"
             )
 
-        every { userInfoRepository.save(any()) } returns UserInfo("", "", "", 1)
+        every { userInfoRepository.save(any()) }returns UserInfo("", "", "", 1)
 
         // when
         // then
@@ -84,3 +89,4 @@ internal class LoanRequestControllerTest {
         }
     }
 }
+
